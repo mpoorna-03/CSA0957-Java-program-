@@ -1,0 +1,11 @@
+
+public class firstlastchar {
+
+	public static void main(String[] args) {
+		String str = "Hello, World!";
+		        char firstChar = str.charAt(0);
+		        char lastChar = str.charAt(str.length() - 1);
+		        System.out.println("The first character of the string is: " + firstChar);
+		        System.out.println("The last character of the string is: " + lastChar);
+		    }
+		}
