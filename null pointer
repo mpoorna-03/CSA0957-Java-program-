@@ -1,0 +1,24 @@
+public class nullpointer {
+
+    public static void main(String[] args) {
+        
+        String str = null;
+        try {
+            System.out.println(str.length());
+        } catch (NullPointerException e) {
+            System.out.println("Caught a NullPointerException: " + e.getMessage());
+        }
+        try {
+            String str2 = null;
+            System.out.println(str2.length());
+        } catch (NullPointerException e) {
+            System.out.println("Caught a NullPointerException: " + e.getMessage());
+        }
+        String str3 = null;
+        if (str3 != null) {
+            System.out.println(str3.length());
+        } else {
+            System.out.println("str3 is null");
+        }
+    }
+}
