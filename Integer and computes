@@ -1,0 +1,29 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class integerandcomputes {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter an integer: ");
+        int n = scanner.nextInt();
+
+        int nn = n * 10 + n;
+        int nnn = n * 100 + n * 10 + n;
+
+        int sum = n + nn + nnn;
+
+        System.out.println("The value of n+nn+nnn is: " + sum);
+
+        
+        String str = String.valueOf(n) + String.valueOf(nn) + String.valueOf(nnn);
+        char[] chars = str.toCharArray();
+        Arrays.sort(chars);
+
+        
+        String sortedStr = new StringBuilder(new String(chars)).reverse().toString();
+
+     
+        
+        System.out.println();
+    }
+}
