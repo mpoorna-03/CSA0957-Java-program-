@@ -1,0 +1,41 @@
+import javax.swing.*;
+		import java.awt.*;
+		import java.awt.event.ActionEvent;
+		import java.awt.event.ActionListener;
+public class ColorChanger {
+
+	public static void main(String[] args) {
+		        SwingUtilities.invokeLater(ColorChanger::createAndShowGUI);
+		    }
+
+		    private static void createAndShowGUI() {
+		        JFrame frame = new JFrame("Color Changer");
+		        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		        frame.setSize(300, 200);
+
+		        JPanel panel = new JPanel();
+		        frame.add(panel);
+
+		        JLabel label = new JLabel("Change my color!");
+		        label.setForeground(Color.BLACK);
+		        panel.add(label);
+
+		        JButton button = new JButton("Change Color");
+		        button.addActionListener(new ActionListener() {
+		            @Override
+		            public void actionPerformed(ActionEvent e) {
+		                label.setForeground(getRandomColor());
+		            }
+		        });
+		        panel.add(button);
+
+		        frame.setVisible(true);
+		    }
+
+		    private static Color getRandomColor() {
+		        int r = (int) (Math.random() * 256);
+		        int g = (int) (Math.random() * 256);
+		        int b = (int) (Math.random() * 256);
+		        return new Color(r, g, b);
+		    }
+		}
