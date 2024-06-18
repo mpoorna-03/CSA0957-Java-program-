@@ -1,0 +1,14 @@
+
+public class totalnumberoflinesinstring {
+
+    public static void main(String[] args) {
+        String str = "I have an idea\n we try our best to implement this project";
+        int lineCount = countLines(str);
+        System.out.println("Total number of lines: " + lineCount);
+    }
+
+    public static int countLines(String str) {
+        String[] lines = str.split("\n");
+        return lines.length;
+    }
+}
