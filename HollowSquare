@@ -1,0 +1,29 @@
+import java.util.Scanner;
+public class HollowSquare {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the side length of the square: ");
+        int sideLength = scanner.nextInt();
+
+        printHollowSquarePattern(sideLength);
+    }
+
+    private static void printHollowSquarePattern(int sideLength) {
+        for (int i = 1; i <= sideLength; i++) {
+            if (i == 1 || i == sideLength) {
+                for (int j = 1; j <= sideLength; j++) {
+                    System.out.print("* ");
+                }
+            } else {
+                System.out.print("* ");
+                for (int j = 2; j < sideLength; j++) {
+                    System.out.print("  ");
+                }
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
