@@ -1,0 +1,26 @@
+public class arrayexception {
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3};
+
+        try {
+            System.out.println(arr[3]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Caught an ArrayIndexOutOfBoundsException: " + e.getMessage());
+        }
+
+        try {
+            int[] arr2 = {1, 2, 3};
+            System.out.println(arr2[4]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Caught an ArrayIndexOutOfBoundsException: " + e.getMessage());
+        }
+
+        int[] arr3 = {1, 2, 3};
+        if (arr3.length > 3) {
+            System.out.println(arr3[3]);
+        } else {
+            System.out.println("Index 3 is out of bounds for array arr3");
+        }
+    }
+}
