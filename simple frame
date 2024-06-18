@@ -1,0 +1,18 @@
+import javax.swing.*;
+
+public class SimpleFrame {
+
+    public static void main(String[] args) {
+        // Create a frame with a specified title
+        JFrame frame = new JFrame("My Frame");
+
+        // Set the size of the frame
+        frame.setSize(800, 200);
+
+        // Set the default close operation for the frame
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        // Make the frame visible
+        frame.setVisible(true);
+    }
+}
