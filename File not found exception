@@ -1,0 +1,23 @@
+import java.io.*;
+
+public class filenotfoundexception {
+
+    public static void main(String[] args) {
+        try {
+            FileReader reader = new FileReader("file.txt");
+
+            BufferedReader br = new BufferedReader(reader);
+
+            String data = null;
+            while ((data = br.readLine()) != null) {
+                System.out.println(data);
+            }
+
+            br.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found: " + e.getMessage());
+        } catch (IOException e) {
+            System.out.println("Error reading file: " + e.getMessage());
+        }
+    }
+}
