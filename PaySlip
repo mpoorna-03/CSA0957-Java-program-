@@ -1,0 +1,86 @@
+import java.util.Scanner;
+
+class Employee { String employeeCode; String employeeName; String departmentName; double basicPay; boolean isUrban; double festivalAdvance; double housingLoan; int monthsWorked;
+public Employee(String employeeCode, String employeeName, String departmentName, double basicPay, boolean isUrban, double festivalAdvance, double housingLoan, int monthsWorked) {
+    this.employeeCode = employeeCode;
+    this.employeeName = employeeName;
+    this.departmentName = departmentName;
+    this.basicPay = basicPay;
+    this.isUrban = isUrban;
+    this.festivalAdvance = festivalAdvance;
+    this.housingLoan = housingLoan;
+    this.monthsWorked = monthsWorked;
+}
+
+public double calculateDA() {
+    return basicPay * 0.10;
+}
+
+public double calculateHRA() {
+    if (isUrban) {
+        return basicPay * 0.10;
+    } else {
+        return basicPay * 0.05;
+    }
+}
+
+public double calculateTotalDeductions() {
+    double festivalAdvanceDeduction = (festivalAdvance > 0 && monthsWorked <= 20) ? 1000 : 0;
+    double housingLoanDeduction = housingLoan / (15 * 12);  // 15 years, monthly deduction
+    return festivalAdvanceDeduction + housingLoanDeduction;
+}
+
+public double calculateGrossPay() {
+    return basicPay + calculateDA() + calculateHRA();
+}
+
+public double calculateNetPay() {
+    return calculateGrossPay() - calculateTotalDeductions();
+}
+
+public void printPaySlip() {
+    System.out.println("Pay Slip for the Month:");
+    System.out.println("Employee Name: " + employeeName);
+    System.out.println("Employee Code: " + employeeCode);
+    System.out.println("Department: " + departmentName);
+    System.out.println("Basic Pay: Rs." + basicPay);
+    System.out.println("DA: Rs." + calculateDA());
+    System.out.println("HRA: Rs." + calculateHRA());
+    System.out.println("Total Deductions: Rs." + calculateTotalDeductions());
+    System.out.println("Gross Pay: Rs." + calculateGrossPay());
+    System.out.println("Net Pay: Rs." + calculateNetPay());
+}
+}
+
+public class PaySlip {
+	public static void main(String[] args) {
+	    Scanner scanner = new Scanner(System.in);
+
+	    System.out.print("Enter Employee Code: ");
+	    String employeeCode = scanner.nextLine();
+	    System.out.print("Enter Employee Name: ");
+	    String employeeName = scanner.nextLine();
+
+	    System.out.print("Enter Department Name: ");
+	    String departmentName = scanner.nextLine();
+
+	    System.out.print("Enter Basic Pay: ");
+	    double basicPay = scanner.nextDouble();
+
+	    System.out.print("Is the Employee Working in an Urban Area (true/false): ");
+	    boolean isUrban = scanner.nextBoolean();
+
+	    System.out.print("Enter Festival Advance Taken: ");
+	    double festivalAdvance = scanner.nextDouble();
+
+	    System.out.print("Enter Housing Loan Taken: ");
+	    double housingLoan = scanner.nextDouble();
+
+	    System.out.print("Enter Number of Months Worked: ");
+	    int monthsWorked = scanner.nextInt();
+
+	    Employee employee = new Employee(employeeCode, employeeName, departmentName, basicPay, isUrban, festivalAdvance, housingLoan, monthsWorked);
+
+	    employee.printPaySlip();
+	}
+}
