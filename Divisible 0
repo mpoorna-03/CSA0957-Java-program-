@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class divisible0 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+
+        if (number != 0) {
+            try {
+                int result = number / 0;
+                System.out.println("The result is: " + result);
+            } catch (ArithmeticException e) {
+                System.out.println("Error: Division by zero is not allowed.");
+            }
+        } else {
+            System.out.println("Error: Division by zero is not allowed.");
+        }
+    }
+}
