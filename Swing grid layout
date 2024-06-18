@@ -1,0 +1,38 @@
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.*;
+
+public class SwingGridLayout {
+
+    private JButton[] buttons;
+    private static final int NUM_BUTTONS = 9;
+
+    public SwingGridLayout() {
+        JFrame frame = new JFrame("Grid Layout Example");
+
+        Container contentPane = frame.getContentPane();
+        contentPane.setLayout(new GridLayout(3, 3));
+
+        buttons = new JButton[NUM_BUTTONS];
+        for (int i = 0; i < NUM_BUTTONS; i++) {
+            buttons[i] = new JButton(String.valueOf(i + 1));
+            buttons[i].addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    JOptionPane.showMessageDialog(frame, "Button " + (i + 1) + " clicked!");
+                }
+            });
+            contentPane.add(buttons[i]);
+        }
+
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(300, 300);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(SwingGridLayout::new);
+    }
+}
