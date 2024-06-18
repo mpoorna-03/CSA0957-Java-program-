@@ -1,0 +1,17 @@
+
+public class classnotfoundexception {
+
+		public static void main(String args[])
+		{
+
+			try {
+
+				Class.forName("classnotfoundexception");
+			}
+
+			catch (ClassNotFoundException ex) {
+				ex.printStackTrace();
+			}
+		}
+	}
+
