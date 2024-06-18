@@ -1,0 +1,24 @@
+public class ColourChangerGUI {
+
+    private String currentColour;
+
+    public ColourChangerGUI(String initialColour) {
+        this.currentColour = initialColour;
+    }
+
+    public void changeColour(String newColour) {
+        this.currentColour = newColour;
+        System.out.println("The colour has been changed to: " + this.currentColour);
+    }
+
+    public String getCurrentColour() {
+        return this.currentColour;
+    }
+
+    public static void main(String[] args) {
+        ColourChangerGUI myColourChanger = new ColourChangerGUI("Red");
+        System.out.println("The current colour is: " + myColourChanger.getCurrentColour());
+        myColourChanger.changeColour("Blue");
+        System.out.println("The current colour is: " + myColourChanger.getCurrentColour());
+    }
+}
