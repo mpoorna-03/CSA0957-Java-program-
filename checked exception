@@ -1,0 +1,22 @@
+import java.io.*;
+
+public class CheckedExceptionExample {
+
+    public static void main(String[] args) {
+        FileInputStream GFG = null;
+        try {
+            GFG = new FileInputStream("/Desktop/CE.txt");
+            // do something with the file
+        } catch (FileNotFoundException e) {
+            System.out.println("Error: File not found");
+        } finally {
+            if (GFG != null) {
+                try {
+                    GFG.close();
+                } catch (IOException e) {
+                    System.out.println("Error: Unable to close file");
+                }
+            }
+        }
+    }
+}
