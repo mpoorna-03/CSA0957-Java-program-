@@ -1,0 +1,14 @@
+public class ArithmeticExceptionExample {
+
+    public static void main(String[] args) 
+    {
+        try { 
+            int a = 30, b = 0; 
+            int c = a/b; // dividing by zero
+            System.out.println ("Result = " + c); 
+        } 
+        catch(ArithmeticException e) {
+             System.out.println ("Error: " + e.getMessage()); 
+        }
+    }
+}
