@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class VowelsConsonants {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a word: ");
+        String input = scanner.nextLine();
+
+        int vowelCount = countVowels(input.toLowerCase());
+        int consonantCount = input.length() - vowelCount;
+
+        System.out.println("Number of vowels in the word: " + vowelCount);
+        System.out.println("Number of consonants in the word: " + consonantCount);
+    }
+
+    private static int countVowels(String input) {
+        int count = 0;
+        for (int i = 0; i < input.length(); i++) {
+            if (input.charAt(i) == 'a' || input.charAt(i) == 'e' || input.charAt(i) == 'i'
+                || input.charAt(i) == 'o' || input.charAt(i) == 'u') {
+                count++;
+            }
+        }
+        return count;
+    }
+    }
